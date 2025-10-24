@@ -16,7 +16,7 @@ const translations = {
         btn_play_reverse: "◀️ Play Backwards",
         btn_stop_play: "⏹️ Stop",
         btn_select: "Select",
-        btn_delete: "🗑️",
+        btn_delete: "Delete",
         btn_save: "💾 Save",
         volume_label: "🔊 Volume:",
         duration_label: "Duration:",
@@ -42,7 +42,7 @@ const translations = {
         btn_play_reverse: "◀️ Jouer à l'Envers",
         btn_stop_play: "⏹️ Stop",
         btn_select: "Sélectionner",
-        btn_delete: "🗑️",
+        btn_delete: "Supprimer",
         btn_save: "💾 Sauvegarder",
         volume_label: "🔊 Volume :",
         duration_label: "Durée :",
@@ -103,6 +103,11 @@ function updateUI() {
     
     // Update language buttons
     updateLanguageButtons();
+    
+    // Update recordings list if it exists (defined in script.js)
+    if (typeof updateRecordingsList !== 'undefined') {
+        updateRecordingsList();
+    }
 }
 
 // Update language selector buttons

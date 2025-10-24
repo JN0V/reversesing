@@ -183,14 +183,14 @@ function updateRecordingsList() {
         item.innerHTML = `
             <div class="recording-info">
                 <div class="recording-name"> ${recording.name}</div>
-                <div class="recording-duration">Duration: ${formatTime(recording.duration)}</div>
+                <div class="recording-duration">${t('duration_label')} ${formatTime(recording.duration)}</div>
             </div>
             <div class="recording-actions">
                 <button class="btn btn-small btn-play" onclick="selectRecording(${index})">
-                    ▶️ Select
+                    ▶️ ${t('btn_select')}
                 </button>
                 <button class="btn btn-small btn-delete" onclick="deleteRecording(${index})">
-                    🗑️ Delete
+                    🗑️ ${t('btn_delete')}
                 </button>
             </div>
         `;
