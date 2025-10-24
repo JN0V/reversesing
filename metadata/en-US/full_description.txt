@@ -1,0 +1,34 @@
+ReverseSing - Record and Reverse Audio
+
+🎙️ Features:
+• Record your voice with one tap
+• Play recordings forward or backwards
+• Persistent storage - recordings saved automatically
+• Beautiful, intuitive interface
+• No ads, no tracking, 100% open source
+
+🎵 How it works:
+1. Tap the red Record button
+2. Speak into your microphone
+3. Tap Stop when done
+4. Select your recording
+5. Play it normally or in reverse!
+
+🌍 Multilingual:
+• English
+• French
+• More languages coming soon
+
+🔒 Privacy:
+• All recordings stored locally on your device
+• No internet connection required
+• No data collection
+• No permissions beyond microphone access
+
+🎨 Perfect for:
+• Learning to pronounce words backwards
+• Creating fun audio effects
+• Experimenting with your voice
+• Entertainment and creative projects
+
+Open source and free forever!

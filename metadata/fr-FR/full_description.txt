@@ -1,0 +1,34 @@
+ReverseSing - Enregistrez et Inversez l'Audio
+
+🎙️ Fonctionnalités:
+• Enregistrez votre voix en un clic
+• Jouez les enregistrements à l'endroit ou à l'envers
+• Stockage persistant - tout est sauvegardé automatiquement
+• Interface magnifique et intuitive
+• Pas de pub, pas de tracking, 100% open source
+
+🎵 Comment ça marche:
+1. Appuyez sur le bouton rouge Enregistrer
+2. Parlez dans votre microphone
+3. Appuyez sur Stop quand c'est fini
+4. Sélectionnez votre enregistrement
+5. Jouez-le normalement ou à l'envers !
+
+🌍 Multilingue:
+• Anglais
+• Français
+• Plus de langues bientôt
+
+🔒 Confidentialité:
+• Tous les enregistrements stockés localement sur votre appareil
+• Pas de connexion internet requise
+• Pas de collecte de données
+• Aucune permission sauf accès au microphone
+
+🎨 Parfait pour:
+• Apprendre à prononcer des mots à l'envers
+• Créer des effets audio amusants
+• Expérimenter avec votre voix
+• Divertissement et projets créatifs
+
+Open source et gratuit pour toujours !

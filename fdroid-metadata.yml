@@ -1,0 +1,53 @@
+# F-Droid Metadata for ReverseSing
+# This file is a template for submission to F-Droid
+# Final file should be placed in fdroiddata repo as: metadata/com.jn0v.reversesing.yml
+
+Categories:
+  - Multimedia
+License: MIT
+AuthorName: JN0V
+AuthorEmail: jn0v@reversesing.app
+SourceCode: https://github.com/JN0V/reversesing
+IssueTracker: https://github.com/JN0V/reversesing/issues
+
+AutoName: ReverseSing
+
+Description: |-
+  Record your voice and play it backwards.
+  
+  Features:
+  * Record audio with one tap
+  * Play recordings forward or backwards
+  * Automatic persistent storage
+  * Beautiful gradient interface
+  * Bilingual support (EN/FR)
+  * Waveform visualization
+  * Volume control
+  * No ads, no tracking
+  
+  Perfect for entertainment and creative audio projects.
+  
+  Privacy:
+  * All recordings stored locally
+  * No internet connection required
+  * Only requires microphone permission
+  * 100% open source
+
+RepoType: git
+Repo: https://github.com/JN0V/reversesing
+
+Builds:
+  - versionName: '1.0.0'
+    versionCode: 1
+    commit: v1.0.0
+    subdir: android
+    gradle:
+      - yes
+    prebuild:
+      - npm install
+      - npx cap sync android
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
