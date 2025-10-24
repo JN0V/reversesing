@@ -1,0 +1,564 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 60px 20px 20px 20px;
+    position: relative;
+}
+
+/* Language Selector */
+.language-selector {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+    z-index: 1000;
+}
+
+.lang-btn {
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.lang-btn.active {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 2.5rem;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.app-logo {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.app-logo img {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.subtitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.recorder-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.status {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 12px 20px;
+    border-radius: 25px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.status.recording {
+    background: rgba(255, 59, 48, 0.3);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.record-controls,
+.play-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: #4CAF50;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-record {
+    background: #f44336;
+}
+
+.btn-record:hover:not(:disabled) {
+    background: #d32f2f;
+}
+
+.btn-stop {
+    background: #ff9800;
+}
+
+.btn-stop:hover:not(:disabled) {
+    background: #f57c00;
+}
+
+.btn-play {
+    background: #2196F3;
+}
+
+.btn-play:hover:not(:disabled) {
+    background: #1976D2;
+}
+
+.btn-reverse {
+    background: #9C27B0;
+}
+
+.btn-reverse:hover:not(:disabled) {
+    background: #7B1FA2;
+}
+
+.btn-stop-play {
+    background: #607D8B;
+}
+
+.btn-stop-play:hover:not(:disabled) {
+    background: #455A64;
+}
+
+.timer {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.recordings-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.recordings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.recordings-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.recordings-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.recordings-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.recordings-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.recording-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.recording-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(5px);
+}
+
+.recording-item.active {
+    border-color: #4CAF50;
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.recording-info {
+    flex: 1;
+}
+
+.recording-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.recording-duration {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.recording-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    border-radius: 15px;
+}
+
+.btn-delete {
+    background: #f44336;
+}
+
+.btn-delete:hover:not(:disabled) {
+    background: #d32f2f;
+}
+
+.current-recording {
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.player-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+}
+
+.volume-control {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+}
+
+.volume-control label {
+    font-size: 0.95rem;
+}
+
+.volume-control input[type="range"] {
+    width: 150px;
+    cursor: pointer;
+}
+
+#volume-value {
+    min-width: 40px;
+    font-weight: 500;
+}
+
+#waveform {
+    display: block;
+    margin: 1.5rem auto 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    max-width: 100%;
+    height: 100px;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE OPTIMIZED
+   ======================================== */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding: 60px 10px 10px 10px;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 1.5rem 1rem;
+    }
+    
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .status {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .timer {
+        font-size: 1.8rem;
+        margin-top: 0.5rem;
+    }
+    
+    .record-controls,
+    .play-controls {
+        gap: 0.6rem;
+    }
+    
+    .btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-small {
+        padding: 6px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .recording-item {
+        padding: 0.8rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+    }
+    
+    .recording-info {
+        width: 100%;
+    }
+    
+    .recording-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .volume-control {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .volume-control input[type="range"] {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .recordings-list {
+        max-height: 250px;
+    }
+    
+    .player-section,
+    .recordings-section {
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    #waveform {
+        width: 100%;
+        height: 80px;
+    }
+    
+    .lang-btn {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+    body {
+        padding: 55px 5px 5px 5px;
+    }
+    
+    .language-selector {
+        top: 10px;
+        right: 10px;
+        gap: 5px;
+    }
+    
+    .lang-btn {
+        padding: 5px 10px;
+        font-size: 0.8rem;
+    }
+    
+    .container {
+        width: 98%;
+        padding: 1.2rem 0.8rem;
+        border-radius: 15px;
+    }
+    
+    h1 {
+        font-size: 1.3rem;
+    }
+    
+    .subtitle {
+        font-size: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    h2 {
+        font-size: 1rem;
+    }
+    
+    .status {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+    
+    .timer {
+        font-size: 1.5rem;
+    }
+    
+    .record-controls,
+    .play-controls {
+        gap: 0.4rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+    
+    .btn-small {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .recording-item {
+        padding: 0.6rem;
+    }
+    
+    .recording-name {
+        font-size: 0.9rem;
+    }
+    
+    .recording-duration {
+        font-size: 0.75rem;
+    }
+    
+    .player-section,
+    .recordings-section {
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .volume-control {
+        margin: 1rem 0;
+    }
+    
+    .volume-control label {
+        font-size: 0.85rem;
+    }
+    
+    #waveform {
+        height: 60px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+    .container {
+        padding: 1rem 0.6rem;
+    }
+    
+    h1 {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        min-width: 100px;
+        padding: 7px 12px;
+        font-size: 0.8rem;
+    }
+}

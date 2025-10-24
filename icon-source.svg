@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="8"/>
+      <feOffset dx="0" dy="4" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main Circle Background -->
+  <circle cx="512" cy="512" r="512" fill="url(#bgGradient)" />
+  
+  <!-- Icon Group -->
+  <g transform="translate(512, 512)" filter="url(#shadow)">
+    <!-- Microphone Body -->
+    <rect x="-80" y="-220" width="160" height="300" rx="80" fill="white" opacity="0.95"/>
+    
+    <!-- Microphone Grille (decorative lines) -->
+    <line x1="-60" y1="-180" x2="60" y2="-180" stroke="#667eea" stroke-width="8" opacity="0.3"/>
+    <line x1="-60" y1="-140" x2="60" y2="-140" stroke="#667eea" stroke-width="8" opacity="0.3"/>
+    <line x1="-60" y1="-100" x2="60" y2="-100" stroke="#667eea" stroke-width="8" opacity="0.3"/>
+    <line x1="-60" y1="-60" x2="60" y2="-60" stroke="#667eea" stroke-width="8" opacity="0.3"/>
+    <line x1="-60" y1="-20" x2="60" y2="-20" stroke="#667eea" stroke-width="8" opacity="0.3"/>
+    <line x1="-60" y1="20" x2="60" y2="20" stroke="#667eea" stroke-width="8" opacity="0.3"/>
+    
+    <!-- Microphone Stand -->
+    <rect x="-15" y="80" width="30" height="160" fill="white" opacity="0.95"/>
+    <ellipse cx="0" cy="80" rx="50" ry="20" fill="white" opacity="0.95"/>
+    <rect x="-100" y="230" width="200" height="30" rx="15" fill="white" opacity="0.95"/>
+    
+    <!-- Sound Waves (Left) -->
+    <path d="M -180,-100 Q -220,-50 -180,0" stroke="white" stroke-width="20" fill="none" opacity="0.7" stroke-linecap="round"/>
+    <path d="M -240,-140 Q -300,-50 -240,40" stroke="white" stroke-width="20" fill="none" opacity="0.5" stroke-linecap="round"/>
+    
+    <!-- Reverse Arrow (Right) -->
+    <g opacity="0.8">
+      <!-- Arrow line -->
+      <path d="M 180,-50 L 260,-50" stroke="white" stroke-width="25" fill="none" stroke-linecap="round"/>
+      <!-- Arrow head -->
+      <path d="M 260,-50 L 230,-80 M 260,-50 L 230,-20" stroke="white" stroke-width="25" fill="none" stroke-linecap="round"/>
+      <!-- Curved line suggesting reversal -->
+      <path d="M 180,-50 Q 150,-50 150,-100" stroke="white" stroke-width="20" fill="none" opacity="0.6" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Small "R" badge in corner for branding -->
+  <circle cx="820" cy="204" r="120" fill="white" opacity="0.95"/>
+  <text x="820" y="240" font-family="Arial, sans-serif" font-size="140" font-weight="bold" fill="#667eea" text-anchor="middle">R</text>
+</svg>

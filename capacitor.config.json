@@ -1,0 +1,6 @@
+{
+  "appId": "com.jn0v.reversesing",
+  "appName": "ReverseSing",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

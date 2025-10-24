@@ -1,0 +1,24 @@
+{
+  "name": "reversesing",
+  "version": "1.0.0",
+  "description": "Audio recorder with reverse playback - Record your voice and play it backwards!",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build needed'",
+    "start": "python3 -m http.server 8000"
+  },
+  "keywords": [
+    "audio",
+    "recorder",
+    "reverse",
+    "capacitor"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@capacitor/android": "^7.4.4",
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/filesystem": "^7.1.4"
+  }
+}
