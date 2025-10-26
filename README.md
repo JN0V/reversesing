@@ -63,6 +63,30 @@ cd android
 # APK will be in: android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
+#### Release (signed) build
+
+To generate a signed release APK for distribution:
+
+1. Create a keystore (one-time):
+   ```bash
+   keytool -genkeypair -v -keystore reversesing-release.jks -keyalg RSA -keysize 2048 -validity 10000 -alias reversesing
+   ```
+2. Place the keystore at `android/app/reversesing-release.jks` (not committed).
+3. Create `android/gradle.properties` (not committed) with:
+   ```
+   REVERSESING_STORE_FILE=app/reversesing-release.jks
+   REVERSESING_STORE_PASSWORD=your_store_password
+   REVERSESING_KEY_ALIAS=reversesing
+   REVERSESING_KEY_PASSWORD=your_key_password
+   ```
+4. Configure signing in `android/app/build.gradle` (see SIGNING_RELEASE.md).
+5. Build release:
+   ```bash
+   cd android
+   ./gradlew clean assembleRelease
+   ```
+6. Output: `android/app/build/outputs/apk/release/app-release.apk` (signed)
+
 ## 🛠️ Tech Stack
 
 - **Frontend**: HTML5, CSS3, Vanilla JavaScript
@@ -76,6 +100,12 @@ The Android app requires the following permissions:
 - `RECORD_AUDIO` - To record audio from the microphone
 - `MODIFY_AUDIO_SETTINGS` - To adjust audio settings
 - `INTERNET` - For web content loading
+
+### Permission prompt behavior
+
+- The microphone permission prompt appears when you tap the `Record` button (first call to `getUserMedia({ audio: true })`).
+- On emulators, ensure microphone passthrough is enabled in AVD settings; otherwise the prompt may not show.
+- If you previously denied the permission, enable it via: App Info → Permissions → Microphone → Allow, then relaunch.
 
 ## 🌍 Internationalization
 
