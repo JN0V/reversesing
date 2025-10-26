@@ -46,6 +46,8 @@ Builds:
     prebuild:
       - npm install
       - npx cap sync android
+      # Ensure microphone feature is declared even when android/ is regenerated
+      - bash -lc "MANIFEST=android/app/src/main/AndroidManifest.xml; if ! grep -q 'android.hardware.microphone' \"$MANIFEST\"; then sed -i '/MODIFY_AUDIO_SETTINGS/a\\    <uses-feature android:name=\"android.hardware.microphone\" android:required=\"false\" />' \"$MANIFEST\"; fi"
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
