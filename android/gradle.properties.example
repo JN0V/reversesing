@@ -1,8 +1,0 @@
-# Example signing properties for ReverseSing release build
-# Copy this file to android/gradle.properties (DO NOT COMMIT REAL SECRETS)
-# and replace the placeholder values.
-
-REVERSESING_STORE_FILE=app/reversesing-release.jks
-REVERSESING_STORE_PASSWORD=change_me_store_password
-REVERSESING_KEY_ALIAS=reversesing
-REVERSESING_KEY_PASSWORD=change_me_key_password
